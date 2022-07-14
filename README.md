@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/common-nighthawk/go-figure.svg?branch=master)](https://travis-ci.com/common-nighthawk/go-figure)
+[![Build Status](https://travis-ci.com/godoes/go-figure.svg?branch=master)](https://travis-ci.com/godoes/go-figure)
 
 # Go Figure
 
@@ -11,13 +11,13 @@ This package was inspired by the Ruby gem [artii](https://github.com/miketierney
 but built from scratch and with a different feature set.
 
 ## Installation
-`go get github.com/common-nighthawk/go-figure`
+`go get github.com/godoes/go-figure`
 
 ## Basic Example
-```go
+```
 package main
 
-import("github.com/common-nighthawk/go-figure")
+import("github.com/godoes/go-figure")
 
 func main() {
   myFigure := figure.NewFigure("Hello World", "", true)
@@ -35,7 +35,7 @@ func main() {
 
 You can also make colorful figures:
 
-```go
+```
 func main() {
   myFigure := figure.NewColorFigure("Hello World", "", "green", true)
   myFigure.Print()
@@ -77,12 +77,12 @@ Provide the absolute path to the flf.
 You can point to a file the comes with this project
 or you can store the file anywhere you'd like and use that location.
 
-The font files are available in the [fonts folder](https://github.com/common-nighthawk/go-figure/tree/master/fonts)
+The font files are available in the [fonts folder](https://github.com/godoes/go-figure/tree/master/fonts)
 and on [figlet.org](http://www.figlet.org/fontdb.cgi).
 
 Here are two examples--
 
-`myFigure := figure.NewFigureWithFont("Foo Bar", "/home/ubuntu/go/src/github.com/common-nighthawk/go-figure/fonts/alphabet.flf", true)`
+`myFigure := figure.NewFigureWithFont("Foo Bar", "/home/ubuntu/go/src/github.com/godoes/go-figure/fonts/alphabet.flf", true)`
 
 `myFigure := figure.NewFigureWithFont("Foo Bar", "/home/lib/fonts/alaphabet.flf", true)`
 
@@ -171,7 +171,7 @@ func Write is a function that takes two arguments.
 `figure.Write(w, myFigure)`
 
 This method would be useful, for example, to add a nifty banner to a web page--
-```go
+```
 func landingPage(w http.ResponseWriter, r *http.Request) {
   figure.Write(w, myFigure)
 }
@@ -419,6 +419,16 @@ returns
 Because this project is small, we can dispense with formality.
 Submit a pull request, open an issue, request a change.
 All good!
+
+### Static check
+
+```shell
+go run honnef.co/go/tools/cmd/staticcheck@latest -f stylish ./...
+```
+
+```shell
+go run github.com/mgechev/revive@latest -exclude ./vendor/... -formatter stylish ./...
+```
 
 ## Wanna Say Thanks?
 GitHub stars are helpful.

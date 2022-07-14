@@ -25,8 +25,8 @@ var colors = map[string]string{
 type font struct {
 	name      string
 	height    int
-	baseline  int
-	hardblank byte
+	baseLine  int
+	hardBlank byte
 	reverse   bool
 	letters   [][]string
 }
@@ -63,8 +63,8 @@ func (font *font) setAttributes(scanner *bufio.Scanner) {
 		text := scanner.Text()
 		if strings.HasPrefix(text, signature) {
 			font.height = getHeight(text)
-			font.baseline = getBaseline(text)
-			font.hardblank = getHardblank(text)
+			font.baseLine = getBaseLine(text)
+			font.hardBlank = getHardBlank(text)
 			font.reverse = getReverse(text)
 			break
 		}
@@ -72,7 +72,7 @@ func (font *font) setAttributes(scanner *bufio.Scanner) {
 }
 
 func (font *font) setLetters(scanner *bufio.Scanner) {
-	font.letters = append(font.letters, make([]string, font.height, font.height)) //TODO: set spaces from flf
+	font.letters = append(font.letters, make([]string, font.height)) //TODO: set spaces from flf
 	for i := range font.letters[0] {
 		font.letters[0][i] = "  "
 	} //TODO: set spaces from flf

@@ -9,7 +9,7 @@ const signature = "flf2"
 const reverseFlag = "1"
 
 var charDelimiters = [3]string{"@", "#", "$"}
-var hardblanksBlacklist = [2]byte{'a', '2'}
+var hardBlanksBlacklist = [2]byte{'a', '2'}
 
 func getHeight(metadata string) int {
 	datum := strings.Fields(metadata)[1]
@@ -17,20 +17,19 @@ func getHeight(metadata string) int {
 	return height
 }
 
-func getBaseline(metadata string) int {
+func getBaseLine(metadata string) int {
 	datum := strings.Fields(metadata)[2]
-	baseline, _ := strconv.Atoi(datum)
-	return baseline
+	baseLine, _ := strconv.Atoi(datum)
+	return baseLine
 }
 
-func getHardblank(metadata string) byte {
+func getHardBlank(metadata string) byte {
 	datum := strings.Fields(metadata)[0]
-	hardblank := datum[len(datum)-1]
-	if hardblank == hardblanksBlacklist[0] || hardblank == hardblanksBlacklist[1] {
+	hardBlank := datum[len(datum)-1]
+	if hardBlank == hardBlanksBlacklist[0] || hardBlank == hardBlanksBlacklist[1] {
 		return ' '
-	} else {
-		return hardblank
 	}
+	return hardBlank
 }
 
 func getReverse(metadata string) bool {

@@ -1,8 +1,9 @@
-[![Build Status](https://travis-ci.com/godoes/go-figure.svg?branch=master)](https://travis-ci.com/godoes/go-figure)
-
 # Go Figure
 
+[![Build Status](https://travis-ci.com/godoes/go-figure.svg?branch=master)](https://travis-ci.com/godoes/go-figure)
+
 ## Description
+
 Go Figure prints beautiful ASCII art from text.
 It supports [FIGlet](http://www.figlet.org/) files,
 and most of its features.
@@ -11,10 +12,12 @@ This package was inspired by the Ruby gem [artii](https://github.com/miketierney
 but built from scratch and with a different feature set.
 
 ## Installation
+
 `go get github.com/godoes/go-figure`
 
 ## Basic Example
-```
+
+```shell
 package main
 
 import("github.com/godoes/go-figure")
@@ -35,7 +38,7 @@ func main() {
 
 You can also make colorful figures:
 
-```
+```shell
 func main() {
   myFigure := figure.NewColorFigure("Hello World", "", "green", true)
   myFigure.Print()
@@ -43,7 +46,9 @@ func main() {
 ```
 
 ## Documentation
+
 ### Create a Figure
+
 There are three ways to create a Figure. These are--
 the method `func NewFigure`,
 the method `func NewColorFigure`, and
@@ -53,7 +58,8 @@ Each constructor takes the arguments: the text, font, and strict mode.
 The "color" constructor takes a color as an additional arg.
 The "with font" specifies the font differently.
 The method signature are:
-```
+
+```shell
 func NewFigure(phrase, fontName string, strict bool) figure
 func NewColorFigure(phrase, fontName string, color string, strict bool) figure
 func NewFigureWithFont(phrase string, reader io.Reader, strict bool) figure
@@ -116,7 +122,9 @@ Examples of each--
 ```
 
 ### Methods: stdout
+
 #### Print()
+
 The most basic, and common, method is func Print.
 A figure responds to Print(), and will write the output to the terminal.
 There is no return value.
@@ -127,6 +135,7 @@ But if you're feeling adventurous,
 explore the methods below.
 
 #### Blink(duration, timeOn, timeOff int)
+
 A figure responds to the func Blink, taking three arguments.
 `duration` is the total time the banner will display, in milliseconds.
 `timeOn` is the length of time the text will blink on (also in ms).
@@ -140,6 +149,7 @@ There is no return value.
 `myFigure.Blink(5000, 1000, -1)`
 
 #### Scroll(duration, stillness int, direction string)
+
 A figure responds to the func Scroll, taking three arguments.
 `duration` is the total time the banner will display, in milliseconds.
 `stillness` is the length of time the text will not move (also in ms).
@@ -153,6 +163,7 @@ There is no return value.
 `myFigure.Scroll(5000, 100, "left")`
 
 #### Dance(duration, freeze int)
+
 A figure responds to the func Dance, taking two arguments.
 `duration` is the total time the banner will display, in milliseconds.
 `freeze` is the length of time between dance moves (also in ms).
@@ -162,7 +173,9 @@ There is no return value.
 `myFigure.Dance(5000, 800)`
 
 ### Methods: Writers
+
 #### Write(w io.Writer, fig figure)
+
 Unlike the above methods that operate on a figure value,
 func Write is a function that takes two arguments.
 `w` is a value that implements all the methods in the io.Writer interface.
@@ -171,14 +184,17 @@ func Write is a function that takes two arguments.
 `figure.Write(w, myFigure)`
 
 This method would be useful, for example, to add a nifty banner to a web page--
-```
+
+```shell
 func landingPage(w http.ResponseWriter, r *http.Request) {
   figure.Write(w, myFigure)
 }
 ```
 
 ### Methods: Misc
+
 #### Slicify() ([]string)
+
 If you want to do something outside of the created methods,
 you can grab the internal slice.
 This gives you a good start to build anything
@@ -200,9 +216,10 @@ returns
 ```
 
 ## More Examples
+
 `figure.NewFigure("Go-Figure", "isometric1", true).Print()`
 
-```
+```shell
       ___           ___           ___                       ___           ___           ___           ___     
      /\  \         /\  \         /\  \          ___        /\  \         /\__\         /\  \         /\  \    
     /::\  \       /::\  \       /::\  \        /\  \      /::\  \       /:/  /        /::\  \       /::\  \   
@@ -218,7 +235,7 @@ returns
 
 `figure.NewFigure("Foo Bar Pop", "smkeyboard", true).Print()`
 
-```
+```shell
  ____  ____  ____  ____  ____  ____  ____  ____  ____ 
 ||F ||||o ||||o ||||B ||||a ||||r ||||P ||||o ||||p ||
 ||__||||__||||__||||__||||__||||__||||__||||__||||__||
@@ -227,7 +244,7 @@ returns
 
 `figure.NewFigure("Keep Your Eyes On Me", "rectangles", true).Print()`
 
-```
+```shell
                                                                                           
  _____                 __ __                 _____                 _____       _____      
 |  |  | ___  ___  ___ |  |  | ___  _ _  ___ |   __| _ _  ___  ___ |     | ___ |     | ___ 
@@ -238,7 +255,7 @@ returns
 
 `figure.NewFigure("ABCDEFGHIJ", "eftichess", true).Print()`
 
-```
+```shell
 #########         #########   ___   #########         #########                           
 ##[`'`']#  \`~'/  ##'\v/`##  /\*/\  ##|`+'|##  '\v/`  ##\`~'/##  [`'`']   '\v/`    \`~'/  
 ###|  |##  (o o)  ##(o 0)## /(o o)\ ##(o o)##  (o 0)  ##(o o)##   |  |    (o 0)    (o o)  
@@ -264,8 +281,8 @@ returns
 
 ![web](docs/web.png "web")
 
-
 ## Supported Fonts
+
 * 3-d
 * 3x5
 * 5lineoblique
@@ -416,6 +433,7 @@ returns
 * weird
 
 ## Contributing
+
 Because this project is small, we can dispense with formality.
 Submit a pull request, open an issue, request a change.
 All good!
@@ -431,6 +449,7 @@ go run github.com/mgechev/revive@latest -exclude ./vendor/... -formatter stylish
 ```
 
 ## Wanna Say Thanks?
+
 GitHub stars are helpful.
 Most importantly, they help with discoverability.
 Projects with more stars are displayed higher
@@ -441,6 +460,7 @@ If you are feeling especially generous,
 give a shout to [@cmmn_nighthawk](https://twitter.com/cmmn_nighthawk).
 
 ## TODO
+
 * Add proper support for spaces
 * More animations
 * Implement graceful line-wrapping and smushing

@@ -3,12 +3,18 @@ package figure
 import (
 	"bufio"
 	"bytes"
+	"embed"
 	"io"
 	"path"
 	"strings"
 )
 
 const defaultFont = "standard"
+
+// Fonts 嵌入配置文件模板到程序内部
+//
+//go:embed fonts/*
+var Fonts embed.FS
 
 var colors = map[string]string{
 	"reset":  "\033[0m",
@@ -33,7 +39,7 @@ type font struct {
 
 func newFont(name string) (font font) {
 	font.setName(name)
-	fontBytes, err := Asset(path.Join("fonts", font.name+".flf"))
+	fontBytes, err := Fonts.ReadFile(path.Join("fonts", font.name+".flf"))
 	if err != nil {
 		panic(err)
 	}

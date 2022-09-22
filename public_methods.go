@@ -43,7 +43,7 @@ func (fig Figure) String() string {
 // duration is the total time the banner will display, in milliseconds.
 // stillness is the length of time the text will not move (also in ms).
 // Therefore, the lower the stillness the faster the scroll speed.
-// direction can be either "right" or "left" (case insensitive).
+// direction can be either "right" or "left" (case-insensitive).
 // The direction will be left if an invalid option (e.g. "foo") is passed.
 // There is no return value.
 func (fig Figure) Scroll(duration, stillness int, direction string) {

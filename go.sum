@@ -1,4 +1,4 @@
-github.com/wzshiming/winseq v0.0.0-20200720163736-7fa652d2b50e h1:lp2XFXaf81Y9yhE4rIt66qe6ss0jSQsBpIYWz8D/5N0=
-github.com/wzshiming/winseq v0.0.0-20200720163736-7fa652d2b50e/go.mod h1:VTAq37rkGeV+WOybvZwjXiJOicICdpLCN8ifpISjK20=
-golang.org/x/sys v0.0.0-20220919091848-fb04ddd9f9c8 h1:h+EGohizhe9XlX18rfpa8k8RAc5XyaeamM+0VHRd4lc=
-golang.org/x/sys v0.0.0-20220919091848-fb04ddd9f9c8/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
+github.com/godoes/winseq v0.0.6 h1:J1nyo39qU1heyzK+OSrkk2waKdH7VHsG0pgXHf4WAqo=
+github.com/godoes/winseq v0.0.6/go.mod h1:pDsGoLgRzYy4GVelIDM8r3VgRGIyLeKKvyCt4veua+0=
+golang.org/x/sys v0.13.0 h1:Af8nKPmuFypiUBjVoU9V20FiaFXOcuZI21p0ycVYYGE=
+golang.org/x/sys v0.13.0/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=

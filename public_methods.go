@@ -9,7 +9,6 @@ import (
 	"time"
 
 	"github.com/fatih/color"
-	_ "github.com/godoes/winseq" // Use Unix like Sequences in Windows
 	"github.com/mattn/go-colorable"
 )
 

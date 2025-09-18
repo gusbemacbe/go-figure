@@ -1,4 +1,4 @@
-module github.com/godoes/go-figure
+module github.com/gusbemacbe/go-figure
 
 go 1.17
 
